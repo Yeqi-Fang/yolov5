@@ -24,7 +24,7 @@ from utils.metrics import fitness
 
 # Settings
 RANK = int(os.getenv("RANK", -1))
-matplotlib.rc("font", **{"size": 11})
+matplotlib.rc("font", **{"size": 9})
 matplotlib.use("Agg")  # for writing to files only
 
 
@@ -398,17 +398,36 @@ def plot_evolve(evolve_csv="path/to/evolve.csv"):  # from utils.plots import *; 
 
 def plot_results(file="path/to/results.csv", dir=""):
     # Plot training results.csv. Usage: from utils.plots import *; plot_results('path/to/results.csv')
+    dic = {'epoch':'epoch',
+            'train/box_loss': 'box loss',
+            'train/obj_loss': 'obj loss',
+            'train/cls_loss': 'class loss',
+            'metrics/precision': 'Precision',
+            'metrics/recall' : 'Recall',
+            'metrics/mAP_0.5': r'mAP$_{[0.5]}$',
+            'metrics/mAP_0.5:0.95': r'mAP$_{[0.5:0.95]}$',
+            'val/box_loss': 'box loss',
+            'val/obj_loss': 'obj loss',
+            'val/cls_loss': 'class loss',
+            'x/lr0': 'lr0',
+            'x/lr1': 'lr1',
+            'x/lr2': 'lr2'
+        }
     save_dir = Path(file).parent if file else Path(dir)
-    fig, ax = plt.subplots(2, 5, figsize=(12, 6), tight_layout=True)
-    ax = ax.ravel()
     files = list(save_dir.glob("results*.csv"))
+    fig, ax = plt.subplots(2, 3, figsize=(12, 6), tight_layout=True)
+    ax = ax.ravel()
     assert len(files), f"No results.csv files found in {save_dir.resolve()}, nothing to plot."
     for f in files:
         try:
             data = pd.read_csv(f)
+            data.columns = [x.strip() for x in data.columns]
+            data = data.rename(columns=dic)
+            print(data.columns)
             s = [x.strip() for x in data.columns]
+            print(s)
             x = data.values[:, 0]
-            for i, j in enumerate([1, 2, 3, 4, 5, 8, 9, 10, 6, 7]):
+            for i, j in enumerate([1, 2, 3, 8, 9, 10]):
                 y = data.values[:, j].astype("float")
                 # y[y == 0] = np.nan  # don't show zero values
                 ax[i].plot(x, y, marker=".", label=f.stem, linewidth=2, markersize=8)  # actual results
@@ -419,7 +438,38 @@ def plot_results(file="path/to/results.csv", dir=""):
         except Exception as e:
             LOGGER.info(f"Warning: Plotting error for {f}: {e}")
     ax[1].legend()
-    fig.savefig(save_dir / "results.png", dpi=200)
+    fig.tight_layout()
+    fig.savefig(save_dir / "results1.png", dpi=600)
+    fig.savefig(save_dir / "results1.pdf")
+    
+    
+    fig, ax = plt.subplots(1, 4, figsize=(15, 4), tight_layout=True)
+    ax = ax.ravel()
+    assert len(files), f"No results.csv files found in {save_dir.resolve()}, nothing to plot."
+    for f in files:
+        try:
+            data = pd.read_csv(f)
+            data.columns = [x.strip() for x in data.columns]
+            data = data.rename(columns=dic)
+            print(data.columns)
+            s = [x.strip() for x in data.columns]
+            print(s)
+            x = data.values[:, 0]
+            for i, j in enumerate([4, 5, 6, 7]):
+                y = data.values[:, j].astype("float")
+                # y[y == 0] = np.nan  # don't show zero values
+                ax[i].plot(x, y, marker=".", label=f.stem, linewidth=2, markersize=8)  # actual results
+                ax[i].plot(x, gaussian_filter1d(y, sigma=3), ":", label="smooth", linewidth=2)  # smoothing line
+                ax[i].set_title(s[j], fontsize=12)
+                # if j in [8, 9, 10]:  # share train and val loss y axes
+                #     ax[i].get_shared_y_axes().join(ax[i], ax[i - 5])
+        except Exception as e:
+            LOGGER.info(f"Warning: Plotting error for {f}: {e}")
+    ax[1].legend()
+    fig.tight_layout()
+    fig.savefig(save_dir / "results2.png", dpi=600)
+    fig.savefig(save_dir / "results2.pdf")
+
     plt.close()
 
 
