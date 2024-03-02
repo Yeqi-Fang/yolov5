@@ -4,10 +4,11 @@
 import math
 import warnings
 from pathlib import Path
-
+import seaborn as sns
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+sns.set(style="whitegrid")
 plt.rcParams["font.size"] = 16
 
 from utils import TryExcept, threaded
@@ -365,28 +366,29 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
 @threaded
 def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confidence", ylabel="Metric"):
     """Plots a metric-confidence curve for model predictions, supporting per-class visualization and smoothing."""
-    fig, ax = plt.subplots(1, 1, figsize=(9, 6), tight_layout=True)
+    
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5), tight_layout=True)
+    sns.set_theme(style="whitegrid")
     # save px, py and names to disk
-    print(px.shape, py.shape)
-    np.save(save_dir.with_name('x.npy'), px)
-    np.save(save_dir.with_name('y.npy'), py)
+    # print(px.shape, py.shape)
+    np.save(save_dir.with_name(f'x_{ylabel}.npy'), px)
+    np.save(save_dir.with_name(f'y_{ylabel}.npy'), py)
     # np.save(save_dir.with_name('names'), names)
-    print('names', names)
-    if 0 < len(names) < 21:  # display per-class legend if < 21 classes
-        for i, y in enumerate(py):
-            ax.plot(px, y, linewidth=1, label=f"{names[i]}")  # plot(confidence, metric)
-    else:
-        ax.plot(px, py.T, linewidth=1, color="grey")  # plot(confidence, metric)
+    # print('names', names)
+    ax.set_apsect('equal')
+    colors = ['#2C73D2', '#00C9A7']
+    for i, y in enumerate(py):
+        ax.plot(px, y, linewidth=1, label=f"{names[i]}".title, color=colors[i])  # plot(confidence, metric)
 
     y = smooth(py.mean(0), 0.05)
-    ax.plot(px, y, linewidth=3, color="blue", label=f"all classes {y.max():.2f} at {px[y.argmax()]:.3f}")
+    ax.plot(px, y, linewidth=3, color="#FF9671", label=f"All classes {y.max():.2f} at {px[y.argmax()]:.3f}")
     ax.set_xlabel(xlabel)
     ax.set_ylabel(ylabel)
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
+    ax.legend(loc="best")
     ax.set_title(f"{ylabel}-Confidence Curve")
     fig.savefig(save_dir, dpi=250)
-    print(save_dir.with_suffix('.pdf'))
+    # print(save_dir.with_suffix('.pdf'))
     fig.savefig(save_dir.with_suffix('.pdf'))
     plt.close(fig)
