@@ -358,7 +358,7 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
     ax.set_title("Precision-Recall Curve")
     fig.savefig(save_dir, dpi=250)
-    fig.savefig(save_dir.with_suffix('pdf'))
+    fig.savefig(save_dir.with_suffix('.pdf'))
     plt.close(fig)
 
 
@@ -367,7 +367,9 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     """Plots a metric-confidence curve for model predictions, supporting per-class visualization and smoothing."""
     fig, ax = plt.subplots(1, 1, figsize=(9, 6), tight_layout=True)
     # save px, py and names to disk
-    np.save(save_dir.with_suffix('.npy'), np.stack([px, py], axis=1))
+    print(px.shape, py.shape)
+    np.save(save_dir.with_name('x.npy'), px)
+    np.save(save_dir.with_name('y.npy'), py)
     # np.save(save_dir.with_name('names'), names)
     print('names', names)
     if 0 < len(names) < 21:  # display per-class legend if < 21 classes
@@ -385,5 +387,6 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
     ax.set_title(f"{ylabel}-Confidence Curve")
     fig.savefig(save_dir, dpi=250)
-    fig.savefig(save_dir.with_suffix('pdf'))
+    print(save_dir.with_suffix('.pdf'))
+    fig.savefig(save_dir.with_suffix('.pdf'))
     plt.close(fig)

@@ -102,7 +102,7 @@ def feature_visualization(x, module_type, stage, n=32, save_dir=Path("runs/detec
 
             LOGGER.info(f"Saving {f}... ({n}/{channels})")
             plt.savefig(f, dpi=300, bbox_inches="tight")
-            plt.savefig(f.with_suffix('pdf'), bbox_inches="tight")
+            plt.savefig(f.with_suffix('.pdf'), bbox_inches="tight")
             plt.close()
             np.save(str(f.with_suffix(".npy")), x[0].cpu().numpy())  # npy save
 
@@ -324,7 +324,7 @@ def plot_val_study(file="", dir="", x=None):
     f = save_dir / "study.png"
     print(f"Saving {f}...")
     plt.savefig(f, dpi=300)
-    plt.savefig(f.with_suffix('pdf'))
+    plt.savefig(f.with_suffix('.pdf'))
 
 
 @TryExcept()  # known issue https://github.com/ultralytics/yolov5/issues/5395
@@ -395,7 +395,7 @@ def imshow_cls(im, labels=None, pred=None, names=None, nmax=25, verbose=False, f
             s = names[labels[i]] + (f"—{names[pred[i]]}" if pred is not None else "")
             ax[i].set_title(s, fontsize=8, verticalalignment="top")
     plt.savefig(f, dpi=300, bbox_inches="tight")
-    plt.savefig(f.with_suffix('pdf'), bbox_inches="tight")
+    plt.savefig(f.with_suffix('.pdf'), bbox_inches="tight")
     plt.close()
     if verbose:
         LOGGER.info(f"Saving {f}")
@@ -433,7 +433,7 @@ def plot_evolve(evolve_csv="path/to/evolve.csv"):
         print(f"{k:>15}: {mu:.3g}")
     f = evolve_csv.with_suffix(".png")  # filename
     plt.savefig(f, dpi=200)
-    plt.savefig(f.with_suffix('pdf'))
+    plt.savefig(f.with_suffix('.pdf'))
     plt.close()
     print(f"Saved {f}")
 
