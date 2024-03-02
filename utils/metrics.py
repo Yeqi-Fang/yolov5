@@ -369,7 +369,7 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     # save px, py and names to disk
     np.save(save_dir.with_suffix('.npy'), np.stack([px, py], axis=1))
     # np.save(save_dir.with_name('names'), names)
-    print(names)
+    print('names', names)
     if 0 < len(names) < 21:  # display per-class legend if < 21 classes
         for i, y in enumerate(py):
             ax.plot(px, y, linewidth=1, label=f"{names[i]}")  # plot(confidence, metric)
