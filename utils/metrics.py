@@ -8,6 +8,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
+plt.rcParams["font.size"] = 12
 
 from utils import TryExcept, threaded
 
@@ -219,6 +220,7 @@ class ConfusionMatrix:
         ax.set_ylabel("Predicted")
         ax.set_title("Confusion Matrix")
         fig.savefig(Path(save_dir) / "confusion_matrix.png", dpi=250)
+        fig.savefig(Path(save_dir) / "confusion_matrix.pdf")
         plt.close(fig)
 
     def print(self):
@@ -356,6 +358,7 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
     ax.set_title("Precision-Recall Curve")
     fig.savefig(save_dir, dpi=250)
+    fig.savefig(save_dir.with_suffix('pdf'))
     plt.close(fig)
 
 
@@ -363,7 +366,10 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
 def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confidence", ylabel="Metric"):
     """Plots a metric-confidence curve for model predictions, supporting per-class visualization and smoothing."""
     fig, ax = plt.subplots(1, 1, figsize=(9, 6), tight_layout=True)
-
+    # save px, py and names to disk
+    np.save(save_dir.with_suffix('.npy'), np.stack([px, py], axis=1))
+    # np.save(save_dir.with_name('names'), names)
+    print(names)
     if 0 < len(names) < 21:  # display per-class legend if < 21 classes
         for i, y in enumerate(py):
             ax.plot(px, y, linewidth=1, label=f"{names[i]}")  # plot(confidence, metric)
@@ -379,4 +385,5 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
     ax.set_title(f"{ylabel}-Confidence Curve")
     fig.savefig(save_dir, dpi=250)
+    fig.savefig(save_dir.with_suffix('pdf'))
     plt.close(fig)
