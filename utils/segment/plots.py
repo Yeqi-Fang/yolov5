@@ -11,7 +11,7 @@ import torch
 from .. import threaded
 from ..general import xywh2xyxy
 from ..plots import Annotator, colors
-
+plt.rcParams["font.size"] = 16
 
 @threaded
 def plot_images_and_masks(images, targets, masks, paths=None, fname="images.jpg", names=None):
@@ -147,4 +147,5 @@ def plot_results_with_masks(file="path/to/results.csv", dir="", best=True):
             print(f"Warning: Plotting error for {f}: {e}")
     ax[1].legend()
     fig.savefig(save_dir / "results.png", dpi=200)
+    fig.savefig(save_dir / "results.pdf")
     plt.close()

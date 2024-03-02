@@ -8,7 +8,7 @@ from pathlib import Path
 import matplotlib.pyplot as plt
 import numpy as np
 import torch
-plt.rcParams["font.size"] = 12
+plt.rcParams["font.size"] = 16
 
 from utils import TryExcept, threaded
 

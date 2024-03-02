@@ -22,6 +22,7 @@ from utils import TryExcept, threaded
 from utils.general import LOGGER, clip_boxes, increment_path, xywh2xyxy, xyxy2xywh
 from utils.metrics import fitness
 
+plt.rcParams["font.size"] = 16
 # Settings
 RANK = int(os.getenv("RANK", -1))
 matplotlib.rc("font", **{"size": 9})
@@ -101,6 +102,7 @@ def feature_visualization(x, module_type, stage, n=32, save_dir=Path("runs/detec
 
             LOGGER.info(f"Saving {f}... ({n}/{channels})")
             plt.savefig(f, dpi=300, bbox_inches="tight")
+            plt.savefig(f.with_suffix('pdf'), bbox_inches="tight")
             plt.close()
             np.save(str(f.with_suffix(".npy")), x[0].cpu().numpy())  # npy save
 
@@ -223,6 +225,7 @@ def plot_lr_scheduler(optimizer, scheduler, epochs=300, save_dir=""):
     plt.xlim(0, epochs)
     plt.ylim(0)
     plt.savefig(Path(save_dir) / "LR.png", dpi=200)
+    plt.savefig(Path(save_dir) / "LR.pdf")
     plt.close()
 
 
@@ -241,11 +244,13 @@ def plot_val_txt():
     ax.hist2d(cx, cy, bins=600, cmax=10, cmin=0)
     ax.set_aspect("equal")
     plt.savefig("hist2d.png", dpi=300)
+    plt.savefig("hist2d.pdf")
 
     fig, ax = plt.subplots(1, 2, figsize=(12, 6), tight_layout=True)
     ax[0].hist(cx, bins=600)
     ax[1].hist(cy, bins=600)
     plt.savefig("hist1d.png", dpi=200)
+    plt.savefig("hist1d.pdf")
 
 
 def plot_targets_txt():
@@ -263,6 +268,7 @@ def plot_targets_txt():
         ax[i].legend()
         ax[i].set_title(s[i])
     plt.savefig("targets.jpg", dpi=200)
+    plt.savefig("targets.pdf")
 
 
 def plot_val_study(file="", dir="", x=None):
@@ -318,6 +324,7 @@ def plot_val_study(file="", dir="", x=None):
     f = save_dir / "study.png"
     print(f"Saving {f}...")
     plt.savefig(f, dpi=300)
+    plt.savefig(f.with_suffix('pdf'))
 
 
 @TryExcept()  # known issue https://github.com/ultralytics/yolov5/issues/5395
@@ -331,6 +338,7 @@ def plot_labels(labels, names=(), save_dir=Path("")):
     # seaborn correlogram
     sn.pairplot(x, corner=True, diag_kind="auto", kind="hist", diag_kws=dict(bins=50), plot_kws=dict(pmax=0.9))
     plt.savefig(save_dir / "labels_correlogram.jpg", dpi=200)
+    plt.savefig(save_dir / "labels_correlogram.pdf")
     plt.close()
 
     # matplotlib labels
@@ -362,6 +370,7 @@ def plot_labels(labels, names=(), save_dir=Path("")):
             ax[a].spines[s].set_visible(False)
 
     plt.savefig(save_dir / "labels.jpg", dpi=200)
+    plt.savefig(save_dir / "labels.pdf")
     matplotlib.use("Agg")
     plt.close()
 
@@ -386,6 +395,7 @@ def imshow_cls(im, labels=None, pred=None, names=None, nmax=25, verbose=False, f
             s = names[labels[i]] + (f"—{names[pred[i]]}" if pred is not None else "")
             ax[i].set_title(s, fontsize=8, verticalalignment="top")
     plt.savefig(f, dpi=300, bbox_inches="tight")
+    plt.savefig(f.with_suffix('pdf'), bbox_inches="tight")
     plt.close()
     if verbose:
         LOGGER.info(f"Saving {f}")
@@ -423,6 +433,7 @@ def plot_evolve(evolve_csv="path/to/evolve.csv"):
         print(f"{k:>15}: {mu:.3g}")
     f = evolve_csv.with_suffix(".png")  # filename
     plt.savefig(f, dpi=200)
+    plt.savefig(f.with_suffix('pdf'))
     plt.close()
     print(f"Saved {f}")
 
