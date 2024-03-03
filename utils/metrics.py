@@ -385,7 +385,7 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     ax.set_aspect('equal')
     colors = ['#2C73D2', '#00C9A7']
     for i, y in enumerate(py):
-        ax.plot(px, y, linewidth=1, label=f"{names[i]}".title, color=colors[i])  # plot(confidence, metric)
+        ax.plot(px, y, linewidth=1, label=f"{names[i]}", color=colors[i])  # plot(confidence, metric)
 
     y = smooth(py.mean(0), 0.05)
     ax.plot(px, y, linewidth=3, color="#FF9671", label=f"All classes {y.max():.2f} at {px[y.argmax()]:.3f}")
