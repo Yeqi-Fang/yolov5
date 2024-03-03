@@ -196,11 +196,12 @@ class ConfusionMatrix:
         import seaborn as sn
 
         array = self.matrix / ((self.matrix.sum(0).reshape(1, -1) + 1e-9) if normalize else 1)  # normalize columns
+        np.save(Path(save_dir) / "confusion_matrix.npy", array)  # save array to disk
         array[array < 0.005] = np.nan  # don't annotate (would appear as 0.00)
 
         fig, ax = plt.subplots(1, 1, figsize=(12, 9), tight_layout=True)
         nc, nn = self.nc, len(names)  # number of classes, names
-        sn.set(font_scale=1.0 if nc < 50 else 0.8)  # for label size
+        sn.set(font_scale=1.3 if nc < 50 else 0.8)  # for label size
         labels = (0 < nn < 99) and (nn == nc)  # apply names to ticklabels
         ticklabels = (names + ["background"]) if labels else "auto"
         with warnings.catch_warnings():
@@ -342,7 +343,13 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     """Plots precision-recall curve, optionally per class, saving to `save_dir`; `px`, `py` are lists, `ap` is Nx2
     array, `names` optional.
     """
-    fig, ax = plt.subplots(1, 1, figsize=(9, 6), tight_layout=True)
+    fig, ax = plt.subplots(1, 1, figsize=(5, 5), tight_layout=True)
+    sns.set_theme(style="whitegrid")
+    ax.set_aspect('equal')
+    np.save(save_dir.with_name("pr_x.npy"), np.array(px))
+    np.save(save_dir.with_name("pr_y.npy"), np.array(py))
+    np.save(save_dir.with_name('pr_ap.npy'), ap)
+    
     py = np.stack(py, axis=1)
 
     if 0 < len(names) < 21:  # display per-class legend if < 21 classes
@@ -356,7 +363,7 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     ax.set_ylabel("Precision")
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
-    ax.legend(bbox_to_anchor=(1.04, 1), loc="upper left")
+    ax.legend(loc="best")
     ax.set_title("Precision-Recall Curve")
     fig.savefig(save_dir, dpi=250)
     fig.savefig(save_dir.with_suffix('.pdf'))
@@ -368,14 +375,14 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     """Plots a metric-confidence curve for model predictions, supporting per-class visualization and smoothing."""
     
     fig, ax = plt.subplots(1, 1, figsize=(5, 5), tight_layout=True)
-    sns.set_theme(style="whitegrid")
+    # sns.set_theme(style="whitegrid")
     # save px, py and names to disk
     # print(px.shape, py.shape)
     np.save(save_dir.with_name(f'x_{ylabel}.npy'), px)
     np.save(save_dir.with_name(f'y_{ylabel}.npy'), py)
     # np.save(save_dir.with_name('names'), names)
     # print('names', names)
-    ax.set_apsect('equal')
+    ax.set_aspect('equal')
     colors = ['#2C73D2', '#00C9A7']
     for i, y in enumerate(py):
         ax.plot(px, y, linewidth=1, label=f"{names[i]}".title, color=colors[i])  # plot(confidence, metric)
