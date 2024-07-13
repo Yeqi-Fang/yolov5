@@ -1,0 +1,205 @@
+2024-07-13 23:03:37,805 INFO    StreamThr :17796 [internal.py:wandb_internal():86] W&B internal server running at pid: 17796, started at: 2024-07-13 23:03:37.805189
+2024-07-13 23:03:37,807 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status
+2024-07-13 23:03:37,809 INFO    WriterThread:17796 [datastore.py:open_for_write():87] open: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\run-q1mfuwim.wandb
+2024-07-13 23:03:37,810 DEBUG   SenderThread:17796 [sender.py:send():379] send: header
+2024-07-13 23:03:37,831 DEBUG   SenderThread:17796 [sender.py:send():379] send: run
+2024-07-13 23:03:37,838 INFO    SenderThread:17796 [sender.py:_setup_resume():749] checking resume status for None/train/q1mfuwim
+2024-07-13 23:03:42,867 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:03:47,912 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:03:52,944 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:03:56,529 INFO    SenderThread:17796 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 712, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 1014, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 801, in urlopen
+    retries = retries.increment(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\lib\retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\internal\internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\lib\gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+2024-07-13 23:03:57,972 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:03,011 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:08,069 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:13,105 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:18,143 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:23,173 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:04:27,235 INFO    SenderThread:17796 [dir_watcher.py:__init__():211] watching files in: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files
+2024-07-13 23:04:27,235 INFO    SenderThread:17796 [sender.py:_start_run_threads():1124] run started: q1mfuwim with start time 1720883017.806189
+2024-07-13 23:04:27,235 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:27,250 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: check_version
+2024-07-13 23:04:27,250 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: check_version
+2024-07-13 23:04:31,143 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: run_start
+2024-07-13 23:04:31,190 DEBUG   HandlerThread:17796 [system_info.py:__init__():26] System info init
+2024-07-13 23:04:31,190 DEBUG   HandlerThread:17796 [system_info.py:__init__():41] System info init done
+2024-07-13 23:04:31,190 INFO    HandlerThread:17796 [system_monitor.py:start():194] Starting system monitor
+2024-07-13 23:04:31,190 INFO    SystemMonitor:17796 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-13 23:04:31,190 INFO    HandlerThread:17796 [system_monitor.py:probe():214] Collecting system info
+2024-07-13 23:04:31,210 INFO    SystemMonitor:17796 [interfaces.py:start():190] Started cpu monitoring
+2024-07-13 23:04:31,210 INFO    SystemMonitor:17796 [interfaces.py:start():190] Started disk monitoring
+2024-07-13 23:04:31,214 INFO    SystemMonitor:17796 [interfaces.py:start():190] Started gpu monitoring
+2024-07-13 23:04:31,222 INFO    SystemMonitor:17796 [interfaces.py:start():190] Started memory monitoring
+2024-07-13 23:04:31,222 DEBUG   HandlerThread:17796 [system_info.py:probe():150] Probing system
+2024-07-13 23:04:31,238 INFO    SystemMonitor:17796 [interfaces.py:start():190] Started network monitoring
+2024-07-13 23:04:31,253 DEBUG   HandlerThread:17796 [system_info.py:_probe_git():135] Probing git
+2024-07-13 23:04:31,355 DEBUG   HandlerThread:17796 [system_info.py:_probe_git():143] Probing git done
+2024-07-13 23:04:31,355 DEBUG   HandlerThread:17796 [system_info.py:probe():198] Probing system done
+2024-07-13 23:04:31,355 DEBUG   HandlerThread:17796 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.9.19', 'heartbeatAt': '2024-07-13T15:04:31.222656', 'startedAt': '2024-07-13T15:03:37.799189', 'docker': None, 'cuda': None, 'args': ('--data', '../tele_datasets/mixed\\data.yaml', '--weights', 'yolov5s.pt', '--img', '1024', '--epochs', '300', '--batch-size', '2', '--name', 'results_1', '--cache'), 'state': 'running', 'program': 'd:\\Github\\DeepShadow\\yolov5\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/ultralytics/yolov5.git', 'commit': '703d37ef7991387d4bf0ebc011abf8d8f2233e1d'}, 'email': '103356538+Yeqi-Fang@users.noreply.github.com', 'root': 'D:/Github/DeepShadow/yolov5', 'host': 'MECHREVO-FYQ', 'username': 'fangy', 'executable': 'C:\\Users\\fangy\\miniconda3\\envs\\normal\\python.exe', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 2300.0, 'min': 0.0, 'max': 2300.0}, 'cpu_freq_per_core': [{'current': 2300.0, 'min': 0.0, 'max': 2300.0}], 'disk': {'/': {'total': 752.8613243103027, 'used': 557.8838539123535}}, 'gpu': 'NVIDIA GeForce RTX 4060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4060 Laptop GPU', 'memory_total': 8585740288}], 'memory': {'total': 15.734493255615234}}
+2024-07-13 23:04:31,355 INFO    HandlerThread:17796 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-13 23:04:31,355 INFO    HandlerThread:17796 [system_monitor.py:probe():227] Publishing system info
+2024-07-13 23:04:31,355 DEBUG   HandlerThread:17796 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-07-13 23:04:32,261 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\conda-environment.yaml
+2024-07-13 23:04:35,456 DEBUG   HandlerThread:17796 [system_info.py:_save_conda():222] Saving conda packages done
+2024-07-13 23:04:35,464 INFO    HandlerThread:17796 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-13 23:04:35,473 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:35,473 DEBUG   SenderThread:17796 [sender.py:send():379] send: files
+2024-07-13 23:04:35,473 INFO    SenderThread:17796 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-07-13 23:04:35,606 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: python_packages
+2024-07-13 23:04:35,606 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: python_packages
+2024-07-13 23:04:35,606 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:04:35,606 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:04:35,606 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:04:36,287 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\conda-environment.yaml
+2024-07-13 23:04:36,287 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\requirements.txt
+2024-07-13 23:04:36,289 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\wandb-metadata.json
+2024-07-13 23:04:36,881 DEBUG   SenderThread:17796 [sender.py:send():379] send: telemetry
+2024-07-13 23:04:37,290 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\output.log
+2024-07-13 23:04:37,594 INFO    wandb-upload_0:17796 [upload_job.py:push():131] Uploaded file C:\Users\fangy\AppData\Local\Temp\tmpw4h52lr5wandb\m97j10tg-wandb-metadata.json
+2024-07-13 23:04:38,187 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:39,311 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\output.log
+2024-07-13 23:04:41,322 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\output.log
+2024-07-13 23:04:43,891 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:48,914 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:50,619 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:04:50,619 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:04:50,619 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:04:53,937 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:58,979 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:04:59,557 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\config.yaml
+2024-07-13 23:05:04,432 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:05,632 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:05:05,632 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:05:05,632 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:05:10,032 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:11,699 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\output.log
+2024-07-13 23:05:13,715 INFO    Thread-16 :17796 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230337-q1mfuwim\files\output.log
+2024-07-13 23:05:15,649 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:20,648 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:05:20,649 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:05:20,649 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:05:21,009 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:26,030 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:31,065 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:05:31,246 DEBUG   SystemMonitor:17796 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-13 23:05:31,255 DEBUG   SenderThread:17796 [sender.py:send():379] send: stats
+2024-07-13 23:05:35,663 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:05:35,663 DEBUG   SenderThread:17796 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:05:35,669 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:05:40,704 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:05:45,754 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:05:50,673 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:05:55,851 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:06:00,495 WARNING FileStreamThread:17796 [file_stream.py:request_with_retry():687] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream (Caused by ProxyError('Cannot connect to proxy.', RemoteDisconnected('Remote end closed connection without response'))). func: functools.partial(<bound method Session.post of <requests.sessions.Session object at 0x000000001516FA30>>, timeout=180.0), args: ('https://api.wandb.ai/files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream',), kwargs: {'json': {'files': {'wandb-events.jsonl': {'offset': 0, 'content': ['{"system.cpu": 0.21, "system.cpu.0.cpu_percent": 14.73, "system.cpu.1.cpu_percent": 0.41, "system.cpu.2.cpu_percent": 13.52, "system.cpu.3.cpu_percent": 0.63, "system.cpu.4.cpu_percent": 2.88, "system.cpu.5.cpu_percent": 0.61, "system.cpu.6.cpu_percent": 1.84, "system.cpu.7.cpu_percent": 0.47, "system.cpu.8.cpu_percent": 12.45, "system.cpu.9.cpu_percent": 0.98, "system.cpu.10.cpu_percent": 12.29, "system.cpu.11.cpu_percent": 0.41, "system.cpu.12.cpu_percent": 4.69, "system.cpu.13.cpu_percent": 1.79, "system.cpu.14.cpu_percent": 5.31, "system.cpu.15.cpu_percent": 0.15, "system.cpu.16.cpu_percent": 3.39, "system.cpu.17.cpu_percent": 2.47, "system.cpu.18.cpu_percent": 1.09, "system.cpu.19.cpu_percent": 0.93, "system.cpu.20.cpu_percent": 19.07, "system.cpu.21.cpu_percent": 19.0, "system.cpu.22.cpu_percent": 13.52, "system.cpu.23.cpu_percent": 9.59, "system.proc.cpu.threads": 57, "system.disk.\\\\.usagePercent": 74.1, "system.disk.\\\\.usageGB": 557.88, "system.disk.in": 723.55, "system.disk.out": 182.4, "system.proc.memory.availableMB": 3403.13, "system.memory": 78.84, "system.proc.memory.rssMB": 1800.95, "system.proc.memory.percent": 11.18, "system.network.sent": 1132733.73, "system.network.recv": 339134.33, "system.gpu.0.memoryAllocated": 8.07, "system.gpu.process.0.memoryAllocated": 8.07, "system.gpu.0.memoryAllocatedBytes": 693087436.8, "system.gpu.process.0.memoryAllocatedBytes": 693087436.8, "system.gpu.0.memory": 0.6, "system.gpu.process.0.memory": 0.6, "system.gpu.0.gpu": 0.2, "system.gpu.process.0.gpu": 0.2, "system.gpu.0.temp": 47.87, "system.gpu.process.0.temp": 47.87, "system.gpu.0.powerWatts": 4.56, "system.gpu.process.0.powerWatts": 4.56, "system.gpu.0.powerPercent": 3.26, "system.gpu.process.0.powerPercent": 3.26, "_wandb": true, "_timestamp": 1720883131.249699, "_runtime": 113.44351}']}}, 'dropped': 0}}
+2024-07-13 23:06:00,888 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:06:05,689 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:06:07,789 WARNING FileStreamThread:17796 [file_stream.py:request_with_retry():687] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))). func: functools.partial(<bound method Session.post of <requests.sessions.Session object at 0x000000001516FA30>>, timeout=180.0), args: ('https://api.wandb.ai/files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream',), kwargs: {'json': {'files': {'wandb-events.jsonl': {'offset': 0, 'content': ['{"system.cpu": 0.21, "system.cpu.0.cpu_percent": 14.73, "system.cpu.1.cpu_percent": 0.41, "system.cpu.2.cpu_percent": 13.52, "system.cpu.3.cpu_percent": 0.63, "system.cpu.4.cpu_percent": 2.88, "system.cpu.5.cpu_percent": 0.61, "system.cpu.6.cpu_percent": 1.84, "system.cpu.7.cpu_percent": 0.47, "system.cpu.8.cpu_percent": 12.45, "system.cpu.9.cpu_percent": 0.98, "system.cpu.10.cpu_percent": 12.29, "system.cpu.11.cpu_percent": 0.41, "system.cpu.12.cpu_percent": 4.69, "system.cpu.13.cpu_percent": 1.79, "system.cpu.14.cpu_percent": 5.31, "system.cpu.15.cpu_percent": 0.15, "system.cpu.16.cpu_percent": 3.39, "system.cpu.17.cpu_percent": 2.47, "system.cpu.18.cpu_percent": 1.09, "system.cpu.19.cpu_percent": 0.93, "system.cpu.20.cpu_percent": 19.07, "system.cpu.21.cpu_percent": 19.0, "system.cpu.22.cpu_percent": 13.52, "system.cpu.23.cpu_percent": 9.59, "system.proc.cpu.threads": 57, "system.disk.\\\\.usagePercent": 74.1, "system.disk.\\\\.usageGB": 557.88, "system.disk.in": 723.55, "system.disk.out": 182.4, "system.proc.memory.availableMB": 3403.13, "system.memory": 78.84, "system.proc.memory.rssMB": 1800.95, "system.proc.memory.percent": 11.18, "system.network.sent": 1132733.73, "system.network.recv": 339134.33, "system.gpu.0.memoryAllocated": 8.07, "system.gpu.process.0.memoryAllocated": 8.07, "system.gpu.0.memoryAllocatedBytes": 693087436.8, "system.gpu.process.0.memoryAllocatedBytes": 693087436.8, "system.gpu.0.memory": 0.6, "system.gpu.process.0.memory": 0.6, "system.gpu.0.gpu": 0.2, "system.gpu.process.0.gpu": 0.2, "system.gpu.0.temp": 47.87, "system.gpu.process.0.temp": 47.87, "system.gpu.0.powerWatts": 4.56, "system.gpu.process.0.powerWatts": 4.56, "system.gpu.0.powerPercent": 3.26, "system.gpu.process.0.powerPercent": 3.26, "_wandb": true, "_timestamp": 1720883131.249699, "_runtime": 113.44351}']}}, 'dropped': 0}}
+2024-07-13 23:06:08,569 INFO    SenderThread:17796 [retry.py:__call__():172] Retry attempt failed:
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 712, in urlopen
+    self._prepare_proxy(conn)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 1014, in _prepare_proxy
+    conn.connect()
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connection.py", line 419, in connect
+    self.sock = ssl_wrap_socket(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\ssl_.py", line 449, in ssl_wrap_socket
+    ssl_sock = _ssl_wrap_socket_impl(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\ssl_.py", line 493, in _ssl_wrap_socket_impl
+    return ssl_context.wrap_socket(sock, server_hostname=server_hostname)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 501, in wrap_socket
+    return self.sslsocket_class._create(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 1074, in _create
+    self.do_handshake()
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\ssl.py", line 1343, in do_handshake
+    self._sslobj.do_handshake()
+ConnectionResetError: [WinError 10054] 远程主机强迫关闭了一个现有的连接。
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\adapters.py", line 486, in send
+    resp = conn.urlopen(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\connectionpool.py", line 801, in urlopen
+    retries = retries.increment(
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\urllib3\util\retry.py", line 594, in increment
+    raise MaxRetryError(_pool, url, error or ResponseError(cause))
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\lib\retry.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\internal\internal_api.py", line 369, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\vendor\gql-0.2.0\wandb_gql\client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\wandb\sdk\lib\gql_request.py", line 58, in execute
+    request = self.session.post(self.url, **post_args)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 637, in post
+    return self.request("POST", url, data=data, json=json, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+  File "C:\Users\fangy\miniconda3\envs\normal\lib\site-packages\requests\adapters.py", line 513, in send
+    raise ProxyError(e, request=request)
+requests.exceptions.ProxyError: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /graphql (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None)))
+2024-07-13 23:06:10,954 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:06:15,982 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:06:17,183 WARNING FileStreamThread:17796 [file_stream.py:request_with_retry():687] requests_with_retry encountered retryable exception: HTTPSConnectionPool(host='api.wandb.ai', port=443): Max retries exceeded with url: /files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream (Caused by ProxyError('Cannot connect to proxy.', ConnectionResetError(10054, '远程主机强迫关闭了一个现有的连接。', None, 10054, None))). func: functools.partial(<bound method Session.post of <requests.sessions.Session object at 0x000000001516FA30>>, timeout=180.0), args: ('https://api.wandb.ai/files/fangyeqi202106-sichuan-university/train/q1mfuwim/file_stream',), kwargs: {'json': {'files': {'wandb-events.jsonl': {'offset': 0, 'content': ['{"system.cpu": 0.21, "system.cpu.0.cpu_percent": 14.73, "system.cpu.1.cpu_percent": 0.41, "system.cpu.2.cpu_percent": 13.52, "system.cpu.3.cpu_percent": 0.63, "system.cpu.4.cpu_percent": 2.88, "system.cpu.5.cpu_percent": 0.61, "system.cpu.6.cpu_percent": 1.84, "system.cpu.7.cpu_percent": 0.47, "system.cpu.8.cpu_percent": 12.45, "system.cpu.9.cpu_percent": 0.98, "system.cpu.10.cpu_percent": 12.29, "system.cpu.11.cpu_percent": 0.41, "system.cpu.12.cpu_percent": 4.69, "system.cpu.13.cpu_percent": 1.79, "system.cpu.14.cpu_percent": 5.31, "system.cpu.15.cpu_percent": 0.15, "system.cpu.16.cpu_percent": 3.39, "system.cpu.17.cpu_percent": 2.47, "system.cpu.18.cpu_percent": 1.09, "system.cpu.19.cpu_percent": 0.93, "system.cpu.20.cpu_percent": 19.07, "system.cpu.21.cpu_percent": 19.0, "system.cpu.22.cpu_percent": 13.52, "system.cpu.23.cpu_percent": 9.59, "system.proc.cpu.threads": 57, "system.disk.\\\\.usagePercent": 74.1, "system.disk.\\\\.usageGB": 557.88, "system.disk.in": 723.55, "system.disk.out": 182.4, "system.proc.memory.availableMB": 3403.13, "system.memory": 78.84, "system.proc.memory.rssMB": 1800.95, "system.proc.memory.percent": 11.18, "system.network.sent": 1132733.73, "system.network.recv": 339134.33, "system.gpu.0.memoryAllocated": 8.07, "system.gpu.process.0.memoryAllocated": 8.07, "system.gpu.0.memoryAllocatedBytes": 693087436.8, "system.gpu.process.0.memoryAllocatedBytes": 693087436.8, "system.gpu.0.memory": 0.6, "system.gpu.process.0.memory": 0.6, "system.gpu.0.gpu": 0.2, "system.gpu.process.0.gpu": 0.2, "system.gpu.0.temp": 47.87, "system.gpu.process.0.temp": 47.87, "system.gpu.0.powerWatts": 4.56, "system.gpu.process.0.powerWatts": 4.56, "system.gpu.0.powerPercent": 3.26, "system.gpu.process.0.powerPercent": 3.26, "_wandb": true, "_timestamp": 1720883131.249699, "_runtime": 113.44351}']}}, 'dropped': 0}}
+2024-07-13 23:06:20,704 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:06:26,055 DEBUG   HandlerThread:17796 [handler.py:handle_request():146] handle_request: keepalive

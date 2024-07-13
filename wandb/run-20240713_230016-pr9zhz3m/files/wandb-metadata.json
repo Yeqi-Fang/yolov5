@@ -1,0 +1,65 @@
+{
+    "os": "Windows-10-10.0.22631-SP0",
+    "python": "3.9.19",
+    "heartbeatAt": "2024-07-13T15:00:18.864621",
+    "startedAt": "2024-07-13T15:00:16.712294",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--data",
+        "../tele_datasets/mixed/data.yaml",
+        "--weights",
+        "yolov5s.pt",
+        "--img",
+        "1024",
+        "--epochs",
+        "3",
+        "--batch-size",
+        "2",
+        "--cache"
+    ],
+    "state": "running",
+    "program": "D:\\Github\\DeepShadow\\yolov5\\train.py",
+    "codePathLocal": "train.py",
+    "codePath": "train.py",
+    "git": {
+        "remote": "https://github.com/ultralytics/yolov5.git",
+        "commit": "703d37ef7991387d4bf0ebc011abf8d8f2233e1d"
+    },
+    "email": "103356538+Yeqi-Fang@users.noreply.github.com",
+    "root": "D:/Github/DeepShadow/yolov5",
+    "host": "MECHREVO-FYQ",
+    "username": "fangy",
+    "executable": "C:\\Users\\fangy\\miniconda3\\envs\\normal\\python.exe",
+    "cpu_count": 16,
+    "cpu_count_logical": 24,
+    "cpu_freq": {
+        "current": 2300.0,
+        "min": 0.0,
+        "max": 2300.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 2300.0,
+            "min": 0.0,
+            "max": 2300.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 752.8613243103027,
+            "used": 557.8837203979492
+        }
+    },
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+            "memory_total": 8585740288
+        }
+    ],
+    "memory": {
+        "total": 15.734493255615234
+    }
+}
