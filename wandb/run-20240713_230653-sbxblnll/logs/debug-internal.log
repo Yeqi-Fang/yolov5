@@ -28,3 +28,20 @@
 2024-07-13 23:06:55,237 INFO    HandlerThread:28532 [system_monitor.py:probe():227] Publishing system info
 2024-07-13 23:06:55,238 DEBUG   HandlerThread:28532 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
 2024-07-13 23:06:55,504 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\conda-environment.yaml
+2024-07-13 23:06:59,480 DEBUG   HandlerThread:28532 [system_info.py:_save_conda():222] Saving conda packages done
+2024-07-13 23:06:59,481 INFO    HandlerThread:28532 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-13 23:06:59,487 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:06:59,488 DEBUG   SenderThread:28532 [sender.py:send():379] send: files
+2024-07-13 23:06:59,488 INFO    SenderThread:28532 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-07-13 23:06:59,525 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\conda-environment.yaml
+2024-07-13 23:06:59,525 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\wandb-metadata.json
+2024-07-13 23:06:59,635 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: python_packages
+2024-07-13 23:06:59,635 DEBUG   SenderThread:28532 [sender.py:send_request():406] send_request: python_packages
+2024-07-13 23:06:59,635 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:06:59,635 DEBUG   SenderThread:28532 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:06:59,635 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:07:00,336 DEBUG   SenderThread:28532 [sender.py:send():379] send: telemetry
+2024-07-13 23:07:00,533 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\output.log
+2024-07-13 23:07:00,533 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\requirements.txt
+2024-07-13 23:07:00,804 INFO    wandb-upload_0:28532 [upload_job.py:push():131] Uploaded file C:\Users\fangy\AppData\Local\Temp\tmpj7swchsnwandb\vgvz259c-wandb-metadata.json
+2024-07-13 23:07:02,549 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\output.log
