@@ -13,7 +13,9 @@ import torch
 from .. import threaded
 from ..general import xywh2xyxy
 from ..plots import Annotator, colors
+
 plt.rcParams["font.size"] = 16
+
 
 @threaded
 def plot_images_and_masks(images, targets, masks, paths=None, fname="images.jpg", names=None):

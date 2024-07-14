@@ -102,7 +102,7 @@ def feature_visualization(x, module_type, stage, n=32, save_dir=Path("runs/detec
 
             LOGGER.info(f"Saving {f}... ({n}/{channels})")
             plt.savefig(f, dpi=300, bbox_inches="tight")
-            plt.savefig(f.with_suffix('.pdf'), bbox_inches="tight")
+            plt.savefig(f.with_suffix(".pdf"), bbox_inches="tight")
             plt.close()
             np.save(str(f.with_suffix(".npy")), x[0].cpu().numpy())  # npy save
 
@@ -327,7 +327,7 @@ def plot_val_study(file="", dir="", x=None):
     f = save_dir / "study.png"
     print(f"Saving {f}...")
     plt.savefig(f, dpi=300)
-    plt.savefig(f.with_suffix('.pdf'))
+    plt.savefig(f.with_suffix(".pdf"))
 
 
 @TryExcept()  # known issue https://github.com/ultralytics/yolov5/issues/5395
@@ -398,7 +398,7 @@ def imshow_cls(im, labels=None, pred=None, names=None, nmax=25, verbose=False, f
             s = names[labels[i]] + (f"—{names[pred[i]]}" if pred is not None else "")
             ax[i].set_title(s, fontsize=8, verticalalignment="top")
     plt.savefig(f, dpi=300, bbox_inches="tight")
-    plt.savefig(f.with_suffix('.pdf'), bbox_inches="tight")
+    plt.savefig(f.with_suffix(".pdf"), bbox_inches="tight")
     plt.close()
     if verbose:
         LOGGER.info(f"Saving {f}")
@@ -436,28 +436,29 @@ def plot_evolve(evolve_csv="path/to/evolve.csv"):
         print(f"{k:>15}: {mu:.3g}")
     f = evolve_csv.with_suffix(".png")  # filename
     plt.savefig(f, dpi=200)
-    plt.savefig(f.with_suffix('.pdf'))
+    plt.savefig(f.with_suffix(".pdf"))
     plt.close()
     print(f"Saved {f}")
 
 
 def plot_results(file="path/to/results.csv", dir=""):
     # Plot training results.csv. Usage: from utils.plots import *; plot_results('path/to/results.csv')
-    dic = {'epoch':'epoch',
-            'train/box_loss': 'box loss',
-            'train/obj_loss': 'obj loss',
-            'train/cls_loss': 'class loss',
-            'metrics/precision': 'Precision',
-            'metrics/recall' : 'Recall',
-            'metrics/mAP_0.5': r'mAP$_{[0.5]}$',
-            'metrics/mAP_0.5:0.95': r'mAP$_{[0.5:0.95]}$',
-            'val/box_loss': 'box loss',
-            'val/obj_loss': 'obj loss',
-            'val/cls_loss': 'class loss',
-            'x/lr0': 'lr0',
-            'x/lr1': 'lr1',
-            'x/lr2': 'lr2'
-        }
+    dic = {
+        "epoch": "epoch",
+        "train/box_loss": "box loss",
+        "train/obj_loss": "obj loss",
+        "train/cls_loss": "class loss",
+        "metrics/precision": "Precision",
+        "metrics/recall": "Recall",
+        "metrics/mAP_0.5": r"mAP$_{[0.5]}$",
+        "metrics/mAP_0.5:0.95": r"mAP$_{[0.5:0.95]}$",
+        "val/box_loss": "box loss",
+        "val/obj_loss": "obj loss",
+        "val/cls_loss": "class loss",
+        "x/lr0": "lr0",
+        "x/lr1": "lr1",
+        "x/lr2": "lr2",
+    }
     save_dir = Path(file).parent if file else Path(dir)
     files = list(save_dir.glob("results*.csv"))
     fig, ax = plt.subplots(2, 3, figsize=(12, 6), tight_layout=True)
@@ -486,8 +487,7 @@ def plot_results(file="path/to/results.csv", dir=""):
     fig.tight_layout()
     fig.savefig(save_dir / "results1.png", dpi=600)
     fig.savefig(save_dir / "results1.pdf")
-    
-    
+
     fig, ax = plt.subplots(1, 4, figsize=(15, 4), tight_layout=True)
     ax = ax.ravel()
     assert len(files), f"No results.csv files found in {save_dir.resolve()}, nothing to plot."
