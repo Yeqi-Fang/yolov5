@@ -4,10 +4,12 @@
 import math
 import warnings
 from pathlib import Path
-import seaborn as sns
+
 import matplotlib.pyplot as plt
 import numpy as np
+import seaborn as sns
 import torch
+
 sns.set(style="whitegrid")
 plt.rcParams["font.size"] = 16
 
@@ -345,11 +347,11 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     """
     fig, ax = plt.subplots(1, 1, figsize=(5, 5), tight_layout=True)
     sns.set_theme(style="whitegrid")
-    ax.set_aspect('equal')
+    ax.set_aspect("equal")
     np.save(save_dir.with_name("pr_x.npy"), np.array(px))
     np.save(save_dir.with_name("pr_y.npy"), np.array(py))
-    np.save(save_dir.with_name('pr_ap.npy'), ap)
-    
+    np.save(save_dir.with_name("pr_ap.npy"), ap)
+
     py = np.stack(py, axis=1)
 
     if 0 < len(names) < 21:  # display per-class legend if < 21 classes
@@ -366,24 +368,24 @@ def plot_pr_curve(px, py, ap, save_dir=Path("pr_curve.png"), names=()):
     ax.legend(loc="best")
     ax.set_title("Precision-Recall Curve")
     fig.savefig(save_dir, dpi=250)
-    fig.savefig(save_dir.with_suffix('.pdf'))
+    fig.savefig(save_dir.with_suffix(".pdf"))
     plt.close(fig)
 
 
 @threaded
 def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confidence", ylabel="Metric"):
     """Plots a metric-confidence curve for model predictions, supporting per-class visualization and smoothing."""
-    
+
     fig, ax = plt.subplots(1, 1, figsize=(5, 5), tight_layout=True)
     # sns.set_theme(style="whitegrid")
     # save px, py and names to disk
     # print(px.shape, py.shape)
-    np.save(save_dir.with_name(f'x_{ylabel}.npy'), px)
-    np.save(save_dir.with_name(f'y_{ylabel}.npy'), py)
+    np.save(save_dir.with_name(f"x_{ylabel}.npy"), px)
+    np.save(save_dir.with_name(f"y_{ylabel}.npy"), py)
     # np.save(save_dir.with_name('names'), names)
     # print('names', names)
-    ax.set_aspect('equal')
-    colors = ['#2C73D2', '#00C9A7']
+    ax.set_aspect("equal")
+    colors = ["#2C73D2", "#00C9A7"]
     for i, y in enumerate(py):
         ax.plot(px, y, linewidth=1, label=f"{names[i]}", color=colors[i])  # plot(confidence, metric)
 
@@ -397,5 +399,5 @@ def plot_mc_curve(px, py, save_dir=Path("mc_curve.png"), names=(), xlabel="Confi
     ax.set_title(f"{ylabel}-Confidence Curve")
     fig.savefig(save_dir, dpi=250)
     # print(save_dir.with_suffix('.pdf'))
-    fig.savefig(save_dir.with_suffix('.pdf'))
+    fig.savefig(save_dir.with_suffix(".pdf"))
     plt.close(fig)
