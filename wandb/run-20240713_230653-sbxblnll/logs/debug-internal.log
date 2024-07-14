@@ -48,3 +48,22 @@
 2024-07-13 23:07:03,834 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
 2024-07-13 23:07:04,562 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\output.log
 2024-07-13 23:07:08,870 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:07:13,918 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:07:14,632 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:07:14,632 DEBUG   SenderThread:28532 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:07:14,646 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:07:19,268 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:07:24,305 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:07:29,654 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:07:29,654 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-13 23:07:34,688 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:07:39,706 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:07:44,661 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-13 23:07:48,149 DEBUG   SenderThread:28532 [sender.py:send_request():406] send_request: stop_status
+2024-07-13 23:07:48,861 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\output.log
+2024-07-13 23:07:48,861 INFO    Thread-16 :28532 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240713_230653-sbxblnll\files\config.yaml
+2024-07-13 23:07:49,811 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:07:53,515 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: status_report
+2024-07-13 23:07:54,859 DEBUG   HandlerThread:28532 [handler.py:handle_request():146] handle_request: keepalive
+2024-07-13 23:07:55,196 DEBUG   SystemMonitor:28532 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-13 23:07:55,201 DEBUG   SenderThread:28532 [sender.py:send():379] send: stats

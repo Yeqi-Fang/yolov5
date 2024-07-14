@@ -1,0 +1,77 @@
+2024-07-14 14:07:44,829 INFO    StreamThr :9540 [internal.py:wandb_internal():86] W&B internal server running at pid: 9540, started at: 2024-07-14 14:07:44.829673
+2024-07-14 14:07:44,830 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status
+2024-07-14 14:07:44,833 INFO    WriterThread:9540 [datastore.py:open_for_write():87] open: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\run-2uqw01mu.wandb
+2024-07-14 14:07:44,834 DEBUG   SenderThread:9540 [sender.py:send():379] send: header
+2024-07-14 14:07:44,858 DEBUG   SenderThread:9540 [sender.py:send():379] send: run
+2024-07-14 14:07:44,863 INFO    SenderThread:9540 [sender.py:_setup_resume():749] checking resume status for None/train/2uqw01mu
+2024-07-14 14:07:46,169 INFO    SenderThread:9540 [dir_watcher.py:__init__():211] watching files in: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files
+2024-07-14 14:07:46,169 INFO    SenderThread:9540 [sender.py:_start_run_threads():1124] run started: 2uqw01mu with start time 1720937264.830671
+2024-07-14 14:07:46,186 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: check_version
+2024-07-14 14:07:46,186 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: check_version
+2024-07-14 14:07:47,086 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: run_start
+2024-07-14 14:07:47,140 DEBUG   HandlerThread:9540 [system_info.py:__init__():26] System info init
+2024-07-14 14:07:47,140 DEBUG   HandlerThread:9540 [system_info.py:__init__():41] System info init done
+2024-07-14 14:07:47,140 INFO    HandlerThread:9540 [system_monitor.py:start():194] Starting system monitor
+2024-07-14 14:07:47,141 INFO    SystemMonitor:9540 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2024-07-14 14:07:47,141 INFO    HandlerThread:9540 [system_monitor.py:probe():214] Collecting system info
+2024-07-14 14:07:47,148 INFO    SystemMonitor:9540 [interfaces.py:start():190] Started cpu monitoring
+2024-07-14 14:07:47,149 INFO    SystemMonitor:9540 [interfaces.py:start():190] Started disk monitoring
+2024-07-14 14:07:47,151 INFO    SystemMonitor:9540 [interfaces.py:start():190] Started gpu monitoring
+2024-07-14 14:07:47,161 INFO    SystemMonitor:9540 [interfaces.py:start():190] Started memory monitoring
+2024-07-14 14:07:47,176 INFO    SystemMonitor:9540 [interfaces.py:start():190] Started network monitoring
+2024-07-14 14:07:47,181 DEBUG   HandlerThread:9540 [system_info.py:probe():150] Probing system
+2024-07-14 14:07:47,183 DEBUG   HandlerThread:9540 [system_info.py:_probe_git():135] Probing git
+2024-07-14 14:07:47,263 DEBUG   HandlerThread:9540 [system_info.py:_probe_git():143] Probing git done
+2024-07-14 14:07:47,263 DEBUG   HandlerThread:9540 [system_info.py:probe():198] Probing system done
+2024-07-14 14:07:47,263 DEBUG   HandlerThread:9540 [system_monitor.py:probe():223] {'os': 'Windows-10-10.0.22631-SP0', 'python': '3.9.19', 'heartbeatAt': '2024-07-14T06:07:47.181686', 'startedAt': '2024-07-14T06:07:44.823679', 'docker': None, 'cuda': None, 'args': ('--data', '../tele_datasets/mixed\\data.yaml', '--weights', 'yolov5s.pt', '--img', '1024', '--epochs', '30', '--batch-size', '2', '--name', 'results_1', '--cache'), 'state': 'running', 'program': 'd:\\Github\\DeepShadow\\yolov5\\train.py', 'codePathLocal': 'train.py', 'codePath': 'train.py', 'git': {'remote': 'https://github.com/ultralytics/yolov5.git', 'commit': '1cdb70b2c6b2913cea8145ffde4f7ca87af8b3d2'}, 'email': '103356538+Yeqi-Fang@users.noreply.github.com', 'root': 'D:/Github/DeepShadow/yolov5', 'host': 'MECHREVO-FYQ', 'username': 'fangy', 'executable': 'C:\\Users\\fangy\\miniconda3\\envs\\normal\\python.exe', 'cpu_count': 16, 'cpu_count_logical': 24, 'cpu_freq': {'current': 2300.0, 'min': 0.0, 'max': 2300.0}, 'cpu_freq_per_core': [{'current': 2300.0, 'min': 0.0, 'max': 2300.0}], 'disk': {'/': {'total': 752.8613243103027, 'used': 558.9732131958008}}, 'gpu': 'NVIDIA GeForce RTX 4060 Laptop GPU', 'gpu_count': 1, 'gpu_devices': [{'name': 'NVIDIA GeForce RTX 4060 Laptop GPU', 'memory_total': 8585740288}], 'memory': {'total': 15.734493255615234}}
+2024-07-14 14:07:47,263 INFO    HandlerThread:9540 [system_monitor.py:probe():224] Finished collecting system info
+2024-07-14 14:07:47,263 INFO    HandlerThread:9540 [system_monitor.py:probe():227] Publishing system info
+2024-07-14 14:07:47,263 DEBUG   HandlerThread:9540 [system_info.py:_save_conda():207] Saving list of conda packages installed into the current environment
+2024-07-14 14:07:48,186 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\conda-environment.yaml
+2024-07-14 14:07:50,922 DEBUG   HandlerThread:9540 [system_info.py:_save_conda():222] Saving conda packages done
+2024-07-14 14:07:50,923 INFO    HandlerThread:9540 [system_monitor.py:probe():229] Finished publishing system info
+2024-07-14 14:07:50,928 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:07:50,928 DEBUG   SenderThread:9540 [sender.py:send():379] send: files
+2024-07-14 14:07:50,928 INFO    SenderThread:9540 [sender.py:_save_file():1390] saving file wandb-metadata.json with policy now
+2024-07-14 14:07:51,047 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: python_packages
+2024-07-14 14:07:51,047 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: python_packages
+2024-07-14 14:07:51,048 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-14 14:07:51,049 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: stop_status
+2024-07-14 14:07:51,050 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-14 14:07:51,221 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\conda-environment.yaml
+2024-07-14 14:07:51,221 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\wandb-metadata.json
+2024-07-14 14:07:51,221 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\requirements.txt
+2024-07-14 14:07:51,760 DEBUG   SenderThread:9540 [sender.py:send():379] send: telemetry
+2024-07-14 14:07:52,227 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_created():271] file/dir created: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\output.log
+2024-07-14 14:07:52,254 INFO    wandb-upload_0:9540 [upload_job.py:push():131] Uploaded file C:\Users\fangy\AppData\Local\Temp\tmp_gu92oi7wandb\eyilkohc-wandb-metadata.json
+2024-07-14 14:07:54,253 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\output.log
+2024-07-14 14:07:55,272 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:00,301 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:05,320 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:06,045 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-14 14:08:06,045 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-14 14:08:06,045 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: stop_status
+2024-07-14 14:08:06,359 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\output.log
+2024-07-14 14:08:08,382 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\output.log
+2024-07-14 14:08:10,820 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:15,843 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:16,458 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\config.yaml
+2024-07-14 14:08:21,051 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-14 14:08:21,052 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-14 14:08:21,053 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: stop_status
+2024-07-14 14:08:21,333 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:26,381 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:31,422 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:34,727 INFO    Thread-16 :9540 [dir_watcher.py:_on_file_modified():288] file/dir modified: D:\Github\DeepShadow\yolov5\wandb\run-20240714_140744-2uqw01mu\files\output.log
+2024-07-14 14:08:36,090 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-14 14:08:36,090 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-14 14:08:36,091 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: stop_status
+2024-07-14 14:08:36,473 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:41,492 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:46,514 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
+2024-07-14 14:08:47,189 DEBUG   SystemMonitor:9540 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2024-07-14 14:08:47,191 DEBUG   SenderThread:9540 [sender.py:send():379] send: stats
+2024-07-14 14:08:51,087 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: stop_status
+2024-07-14 14:08:51,088 DEBUG   SenderThread:9540 [sender.py:send_request():406] send_request: stop_status
+2024-07-14 14:08:51,103 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: internal_messages
+2024-07-14 14:08:52,487 DEBUG   HandlerThread:9540 [handler.py:handle_request():146] handle_request: status_report
